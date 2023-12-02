@@ -83,13 +83,7 @@ const FileDrop: React.FC = () => {
         {message}
       </div>
 
-      {isFileUploaded && (
-        <img
-          src="/path/to/graph.png" // Path to your image
-          alt="Graph"
-          style={{ maxWidth: "600px", margin: "20px auto" }}
-        />
-      )}
+    
 
 
       <footer style={{ marginTop: "auto", fontSize: "x-small" }}>
