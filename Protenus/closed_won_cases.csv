@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ID,Quarter,Date,Stage,Customer_Type,Product_Type,First_Contact_Date,Duration_Months
 0061K00000lTTWt,Q4 2019,10/1/2019,Closed Won,Existing Business,Diversion Monitoring,10/01/2019,0
 0061K00000lRY1U,Q4 2019,10/1/2019,Closed Won,Existing Business,Diversion Monitoring,10/01/2019,0
@@ -29,3 +30,5 @@ ID,Quarter,Date,Stage,Customer_Type,Product_Type,First_Contact_Date,Duration_Mon
 0061K00000k0siL,Q2 2020,5/1/2020,Closed Won,Existing Business,Compliance Analytics,05/01/2020,0
 0061K00000jVkQJ,Q2 2020,5/1/2020,Closed Won,New Business,Diversion Monitoring,05/01/2020,0
 0061K00000iqFKu,Q2 2020,6/1/2020,Closed Won,New Business,Diversion Monitoring,06/01/2020,0
+=======
+>>>>>>> 13d75390938399181709a50de615cc1d10d4eb41
