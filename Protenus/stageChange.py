@@ -1,4 +1,3 @@
-import csv
 import datetime
 from collections import defaultdict
 
@@ -82,7 +81,7 @@ with open(csv_file_path, 'w', newline='') as csvfile:
                 if entry['stage'] == 'Closed Won':
                     # Calculate the duration in months
                     first_contact_date = hospital_first_contact[entry['hash_code']]
-                    duration_months = ((datetime.datetime.strptime(entry['date'], '%m/%d/%y') - first_contact_date).days) // 30
+                    duration_months = ((datetime.datetime.strptime(entry['date'], '%m/%d/%y') - first_contact_date).days) / 30
 
                     writer.writerow({
                         'ID': entry['hash_code'],
