@@ -13,32 +13,31 @@ with open('zip.txt', 'r') as zip_file:
 with open('state.txt', 'r') as state_file:
     states = [line.strip() for line in state_file if line.strip()]
 
-# Combine hash codes, states, and zip codes into a defaultdict
+# Read stages from file
+with open('stages.txt', 'r') as stages_file:
+    stages = [line.strip() for line in stages_file if line.strip()]
+
+# Combine hash codes, states, zip codes, and stages into a defaultdict
 data = defaultdict(list)
-for hash_code, state, zip_code in zip(hash_codes, states, zip_codes):
+closed_won_count = 0  # Track the total number of "closed won" cases
+
+for hash_code, state, zip_code, stage in zip(hash_codes, states, zip_codes, stages):
     key = (state, zip_code)
-    data[key].append(hash_code)
+    data[key].append({'hash_code': hash_code, 'stage': stage})
+    
+    # Check if the case is "closed won"
+    if stage == 'Closed Won':
+        closed_won_count += 1
 
 # Calculate the percentage of duplicate zip codes and states
 total_entries = len(hash_codes)
 unique_entries = len(data)
 duplicate_percentage = ((total_entries - unique_entries) / total_entries) * 100
 
+# Calculate the percentage of total "closed won" cases
+closed_won_percentage_total = (closed_won_count / total_entries) * 100
+
 print(f'Total entries: {total_entries}')
 print(f'Unique entries: {unique_entries}')
 print(f'Percentage of duplicate entries: {duplicate_percentage:.2f}%')
-
-# Save grouped data to CSV file
-csv_file_path = 'grouped_dataset.csv'
-with open(csv_file_path, 'w', newline='') as csvfile:
-    fieldnames = ['state', 'zipcode', 'hash_codes']
-    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-    
-    # Write header
-    writer.writeheader()
-
-    # Write grouped data
-    for (state, zipcode), hash_codes_list in data.items():
-        writer.writerow({'state': state, 'zipcode': zipcode, 'hash_codes': ', '.join(hash_codes_list)})
-
-print(f'Grouped dataset saved to {csv_file_path}')
+print(f'Percentage of total "closed won" cases: {closed_won_percentage_total:.2f}%')
