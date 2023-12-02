@@ -22,7 +22,7 @@ def read_csv_and_plot(file_path):
     plt.legend()
 
     # Save the plot to the same directory as the script
-    plt.savefig('graph_Variable_A_B.png')
+    plt.savefig('graph.png')
     
     # Show the plot
     plt.show()

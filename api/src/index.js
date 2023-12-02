@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const { exec } = require("child_process");
 const path = require("path");
+const fs = require("fs");
 
 const app = express();
 const port = 3000;
@@ -28,9 +29,16 @@ app.post("/analysis", upload.single("file"), (req, res) => {
       return res.status(500).send("Internal Server Error");
     }
 
-    console.log(`Python script output: ${stdout}`);
     res.send(stdout);
   });
+
+  const imagePath = path.join(__dirname, "../graph.png");
+  const imageContent = fs.readFileSync(imagePath);
+
+  if (!res.headersSent) {
+    res.setHeader("Content-Type", "image/png");
+    res.send(imageContent);
+  }
 });
 
 app.listen(port, () => {
