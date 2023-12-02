@@ -48,19 +48,27 @@ for i, (hash_code, state, zip_code, stage) in enumerate(zip(hash_codes, states, 
     if i in date_quarter_year_mapping:
         quarter, year = date_quarter_year_mapping[i]
         key = (state, zip_code)
-        data_by_quarter_and_year[(quarter, year)][key].append({'hash_code': hash_code, 'stage': stage})
+        data_by_quarter_and_year[(quarter, year)][key].append({'hash_code': hash_code, 'stage': stage, 'date': dates[i]})
 
-# Calculate and print statistics for each quarter and year
-for (quarter, year), data in data_by_quarter_and_year.items():
-    total_entries = sum(len(v) for v in data.values())
-    unique_entries = len(data)
-    duplicate_percentage = ((total_entries - unique_entries) / total_entries) * 100
-    # Assuming "Stage 5 - Contracting" as "Closed Won"
-    closed_won_count = sum(len([entry for entry in v if entry['stage'] == 'Closed Won']) for v in data.values())
-    closed_won_percentage_total = (closed_won_count / total_entries) * 100
+# Save closed-won cases to CSV file
+csv_file_path = 'closed_won_cases.csv'
+with open(csv_file_path, 'w', newline='') as csvfile:
+    fieldnames = ['ID', 'Quarter', 'Date', 'Stage']
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-    print(f"Year: {year}, Quarter: {quarter}")
-    print(f"  Total entries: {total_entries}")
-    print(f"  Unique entries: {unique_entries}")
-    print(f"  Percentage of duplicate entries: {duplicate_percentage:.2f}%")
-    print(f"  Percentage of total 'closed won' cases: {closed_won_percentage_total:.2f}%")
+    # Write header
+    writer.writeheader()
+
+    # Write closed-won cases
+    for (quarter, year), data in data_by_quarter_and_year.items():
+        for entries in data.values():
+            for entry in entries:
+                if entry['stage'] == 'Closed Won':
+                    writer.writerow({
+                        'ID': entry['hash_code'],
+                        'Quarter': f'{quarter} {year}',
+                        'Date': entry['date'],
+                        'Stage': entry['stage']
+                    })
+
+print(f'Closed-won cases saved to {csv_file_path}')
