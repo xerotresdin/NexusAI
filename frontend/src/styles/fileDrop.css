@@ -8,11 +8,11 @@ body {
     border-radius: 5px;
   }
   p{
-    color: #F4F4F4; /*text color*/
+    color: #000000; /*text color*/
   }
   .drag { 
       background-color: #e6e9f0;  
-  background-image: linear-gradient(60deg,#9cd6e6 15%,  #81b99e 75%);
+  background-image: linear-gradient(60deg,#9cd6e6 15%,  #a7dec3 75%);
   }
   
   li { 
@@ -27,3 +27,4 @@ body {
     font-size: 13px;
     border-radius: 2px;
   }
+  
