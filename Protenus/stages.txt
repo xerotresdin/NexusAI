@@ -8841,8 +8841,4 @@ Stage 3 - Pricing
 Stage 4 - Verbal / VOC
 Stage 3 - Pricing
 Stage 3 - Pricing
-<<<<<<< HEAD
 Stage 2 - Scoping
-=======
-Stage 2 - Scoping
->>>>>>> 13d75390938399181709a50de615cc1d10d4eb41
