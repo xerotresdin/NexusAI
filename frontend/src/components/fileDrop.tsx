@@ -7,6 +7,7 @@ const FileDrop: React.FC = () => {
     "Drag and drop a .csv file here"
   );
   const [isCsvFileHovered, setIsCsvFileHovered] = useState<boolean>(false);
+  const [isFileUploaded, setIsFileUploaded] = useState<boolean>(false); // New state to track file upload
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -32,6 +33,9 @@ const FileDrop: React.FC = () => {
     if (files.length > 0 && files[0].type === "text/csv") {
       setFile(files[0]);
       setMessage(`File "${files[0].name}" successfully uploaded.`);
+      setIsFileUploaded(true);
+
+      
     } else {
       setMessage("Please drop a .csv file.");
     }
@@ -83,8 +87,13 @@ const FileDrop: React.FC = () => {
         {message}
       </div>
 
-    
-
+    { isFileUploaded && (
+      <img 
+          src="/graph.png" // Replace with the correct path to your image
+          alt="Graph"
+          style={{ maxWidth: "600px", margin: "20px auto" }}
+        />
+    )}
 
       <footer style={{ marginTop: "auto", fontSize: "x-small" }}>
         &copy; 2023 NexusAI Inc. All rights reserved
