@@ -1,0 +1,29 @@
+body { 
+    font-family: 'Roboto Slab', serif;
+  background-image: linear-gradient(to top, #ffffff 0%, #ffffff 99%, #ffffff 100%);
+    height: 100vh;
+  }
+  ul { 
+      padding: 10px !important;
+    border-radius: 5px;
+  }
+  p{
+    color: #F4F4F4; /*text color*/
+  }
+  .drag { 
+      background-color: #e6e9f0;  
+  background-image: linear-gradient(60deg,#9cd6e6 15%,  #81b99e 75%);
+  }
+  
+  li { 
+    cursor: move;
+    opacity: 0.9;
+  }
+  .selected {
+    list-style:none;
+    color: #FFF;
+    margin: 5px;
+    padding: 5px;
+    font-size: 13px;
+    border-radius: 2px;
+  }
