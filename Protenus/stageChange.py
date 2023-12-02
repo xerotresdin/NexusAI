@@ -19,7 +19,7 @@ for date, stage in zip(dates, stages):
     data[quarter].append({'date': date, 'stage': stage})
 
     # Check if the case is "closed won"
-    if stage == 'closed won':
+    if stage == 'Closed Won':
         closed_won_count += 1
 
 # Calculate the total number of entries
@@ -41,11 +41,6 @@ for quarter, entries in data.items():
 print(f'Total entries: {total_entries}')
 print(f'Percentage of total "closed won" cases: {closed_won_percentage_total:.2f}%')
 
-<<<<<<< HEAD
-print("\nClosed Won Percentages for Each Quarter:")
-for quarter, percentage in quarterly_closed_won_percentages.items():
-    print(f'{quarter}: {percentage:.2f}%')
-=======
 import datetime
 
 # Function to determine the quarter of a date
@@ -87,4 +82,3 @@ for year, quarters in quarters_by_year.items():
     print(f"Year: {year}")
     for quarter, dates in quarters.items():
         print(f"  {quarter}: {dates}")
->>>>>>> refs/remotes/origin/main
