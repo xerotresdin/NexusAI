@@ -22,7 +22,7 @@ date_quarter_year_mapping = {}
 for i, date_str in enumerate(dates):
     try:
         # Adjusting to the format MM/DD/YY
-        date_obj = datetime.datetime.strptime(date_str, '%m/%d/%y')
+        date_obj = datetime.datetime.strptime(date_str, '%m/%d/%Y')
         year = date_obj.year
         quarter = get_quarter(date_obj)
 
@@ -56,7 +56,7 @@ for i, (hash_code, state, zip_code, stage, customer_type, product_type) in enume
         
         # Update the hospital's first point of contact date
         if hash_code not in hospital_first_contact:
-            hospital_first_contact[hash_code] = datetime.datetime.strptime(dates[i], '%m/%d/%y')
+            hospital_first_contact[hash_code] = datetime.datetime.strptime(dates[i], '%m/%d/%Y')
 
         data_by_quarter_and_year[(quarter, year)][key].append({
             'hash_code': hash_code,
@@ -82,7 +82,7 @@ with open(csv_file_path, 'w', newline='') as csvfile:
                 if entry['stage'] == 'Closed Won':
                     # Calculate the duration in months
                     first_contact_date = hospital_first_contact[entry['hash_code']]
-                    duration_months = ((datetime.datetime.strptime(entry['date'], '%m/%d/%y') - first_contact_date).days) // 30
+                    duration_months = ((datetime.datetime.strptime(entry['date'], '%m/%d/%Y') - first_contact_date).days) // 30
 
                     writer.writerow({
                         'ID': entry['hash_code'],
@@ -91,7 +91,7 @@ with open(csv_file_path, 'w', newline='') as csvfile:
                         'Stage': entry['stage'],
                         'Customer_Type': entry['customer_type'],
                         'Product_Type': entry['product_type'],
-                        'First_Contact_Date': first_contact_date.strftime('%m/%d/%y'),
+                        'First_Contact_Date': first_contact_date.strftime('%m/%d/%Y'),
                         'Duration_Months': duration_months
                     })
 
