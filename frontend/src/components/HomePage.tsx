@@ -1,6 +1,5 @@
 import React from "react";
 import FileDrop from "./fileDrop";
-import { Bar } from 'react-chartjs-2';
 
 
 const HomePage: React.FC = () => {
