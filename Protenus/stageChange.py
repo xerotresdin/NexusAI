@@ -13,6 +13,48 @@ with open('zip.txt', 'r') as zip_file:
 with open('state.txt', 'r') as state_file:
     states = [line.strip() for line in state_file if line.strip()]
 
+# Read stage from file
+with open('stage.txt', 'r') as state_file:
+    stage = [line.strip() for line in state_file if line.strip()]
+
+# Read product from file
+with open('product.txt', 'r') as state_file:
+    product = [line.strip() for line in state_file if line.strip()]
+
+# Read number of hospitals from file
+with open('num_hospitals.txt', 'r') as state_file:
+    num_hospitals = [line.strip() for line in state_file if line.strip()]
+
+# Read hospital type from file
+with open('hospital_type.txt', 'r') as state_file:
+    hospital_type = [line.strip() for line in state_file if line.strip()]
+
+# Read number of beds from file
+with open('num_beds.txt', 'r') as state_file:
+    num_beds = [line.strip() for line in state_file if line.strip()]
+
+# Read number of physicians from file
+with open('num_physicians.txt', 'r') as state_file:
+    num_physicians = [line.strip() for line in state_file if line.strip()]
+
+# Read number of employees from file
+with open('num_employees.txt', 'r') as state_file:
+    num_employees = [line.strip() for line in state_file if line.strip()]
+
+# Read hospital type from file
+with open('money_on_hand.txt', 'r') as state_file:
+    money_on_hand = [line.strip() for line in state_file if line.strip()]
+
+
+# Read hospital type from file
+with open('total_revenue.txt', 'r') as state_file:
+    total_revenue = [line.strip() for line in state_file if line.strip()]
+
+
+# Read hospital type from file
+with open('net_revenue.txt', 'r') as state_file:
+    net_revenue = [line.strip() for line in state_file if line.strip()]
+
 # Combine hash codes, states, and zip codes into a defaultdict
 data = defaultdict(list)
 for hash_code, state, zip_code in zip(hash_codes, states, zip_codes):
