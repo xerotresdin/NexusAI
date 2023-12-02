@@ -1,8 +1,8 @@
 ID,Quarter,Date,Stage,Customer_Type,Product_Type,First_Contact_Date,Duration_Months,Annual_Amount
-0061K00000lTTWt,Q3 2023,7/1/2023,Closed Won,Existing Business,Diversion Monitoring,06/01/2023,1,74004.0
-0061K00000lRY1U,Q3 2023,7/1/2023,Closed Won,Existing Business,Diversion Monitoring,05/01/2023,2,47974.15
-0061K00000k1CB5,Q3 2023,7/1/2023,Closed Won,New Business,Diversion Monitoring,05/01/2022,14,83384.94
-0061K00000jWa9Q,Q3 2023,7/1/2023,Closed Won,Existing Business,Privacy Monitoring,04/01/2022,15,60139.31
+0061K00000lTTWt,Q3 2023,7/1/2023,Closed Won,Existing Business,Diversion Monitoring,06/01/2023,1,201142.872
+0061K00000lRY1U,Q3 2023,7/1/2023,Closed Won,Existing Business,Diversion Monitoring,05/01/2023,2,130393.7397
+0061K00000k1CB5,Q3 2023,7/1/2023,Closed Won,New Business,Diversion Monitoring,05/01/2022,14,226640.2669
+0061K00000jWa9Q,Q3 2023,7/1/2023,Closed Won,Existing Business,Privacy Monitoring,04/01/2022,15,163458.6446
 0061K00000lQE9R,Q2 2023,6/1/2023,Closed Won,New Business,Privacy Monitoring,01/01/2023,5,190873.2895
 0061K00000lQmFq,Q2 2023,4/1/2023,Closed Won,Existing Business,Privacy Monitoring,02/01/2023,1,N/A
 0061K00000ks4PF,Q2 2023,6/1/2023,Closed Won,New Business,Privacy Monitoring,12/01/2022,6,111906.9365
