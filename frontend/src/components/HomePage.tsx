@@ -1,7 +1,11 @@
 import React from "react";
-import FileDrop from "./FileDrop";
+import FileDrop from "./fileDrop";
+import { Bar } from 'react-chartjs-2';
+
 
 const HomePage: React.FC = () => {
+  
+  
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "left", height: "100vh" }}>
       <div style={{ alignSelf: "flex-start" }}>
