@@ -41,3 +41,37 @@ print(f'Total entries: {total_entries}')
 print(f'Unique entries: {unique_entries}')
 print(f'Percentage of duplicate entries: {duplicate_percentage:.2f}%')
 print(f'Percentage of total "closed won" cases: {closed_won_percentage_total:.2f}%')
+
+import datetime
+
+# Function to determine the quarter of a date
+def get_quarter(date):
+    month = date.month
+    if 1 <= month <= 3:
+        return 'Q1'
+    elif 4 <= month <= 6:
+        return 'Q2'
+    elif 7 <= month <= 9:
+        return 'Q3'
+    else:
+        return 'Q4'
+
+# Read dates from file
+with open('2023_dates.txt', 'r') as file:
+    dates = [line.strip() for line in file if line.strip()]
+
+# Separate dates into quarters
+quarters = {'Q1': [], 'Q2': [], 'Q3': [], 'Q4': []}
+for date_str in dates:
+    try:
+        # Adjusting to the format MM/DD/YY
+        date_obj = datetime.datetime.strptime(date_str, '%m/%d/%y')
+        if date_obj.year == 2023:
+            quarter = get_quarter(date_obj)
+            quarters[quarter].append(date_str)
+    except ValueError:
+        print(f"Invalid date format: {date_str}")
+
+# Output the dates in each quarter
+for quarter, dates in quarters.items():
+    print(f"{quarter}: {dates}")
