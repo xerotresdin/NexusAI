@@ -60,18 +60,26 @@ def get_quarter(date):
 with open('2023_dates.txt', 'r') as file:
     dates = [line.strip() for line in file if line.strip()]
 
-# Separate dates into quarters
-quarters = {'Q1': [], 'Q2': [], 'Q3': [], 'Q4': []}
+# Separate dates into quarters by year
+quarters_by_year = {}
 for date_str in dates:
     try:
         # Adjusting to the format MM/DD/YY
         date_obj = datetime.datetime.strptime(date_str, '%m/%d/%y')
-        if date_obj.year == 2023:
-            quarter = get_quarter(date_obj)
-            quarters[quarter].append(date_str)
+        year = date_obj.year
+        quarter = get_quarter(date_obj)
+
+        # Initialize the year and quarter if not already done
+        if year not in quarters_by_year:
+            quarters_by_year[year] = {'Q1': [], 'Q2': [], 'Q3': [], 'Q4': []}
+
+        # Append the date to the appropriate quarter and year
+        quarters_by_year[year][quarter].append(date_str)
     except ValueError:
         print(f"Invalid date format: {date_str}")
 
-# Output the dates in each quarter
-for quarter, dates in quarters.items():
-    print(f"{quarter}: {dates}")
+# Output the dates in each quarter by year
+for year, quarters in quarters_by_year.items():
+    print(f"Year: {year}")
+    for quarter, dates in quarters.items():
+        print(f"  {quarter}: {dates}")
